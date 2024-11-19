@@ -1,31 +1,32 @@
-import { Admin } from 'src/admin/entities/admin.entity';
-import { Project } from 'src/project/entities/project.entity';
-import { Entity, PrimaryGeneratedColumn, Column,OneToMany, ManyToOne } from 'typeorm';
 
-@Entity()
-export class Client {
-  @PrimaryGeneratedColumn()
-  id: number;
+import { Admin } from 'src/admin/entities/admin.entity'; 
+import { Project } from 'src/project/entities/project.entity'; 
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne } from 'typeorm';  
 
-  @Column()
-  nom: string;
+@Entity() 
+export class Client {   
+  @PrimaryGeneratedColumn()   
+  id: number;    
 
-  @Column()
-  prenom: string;
+  @Column()   
+  nom: string;    
 
-  @Column()
-  username: string;
+  @Column()   
+  prenom: string;    
 
-  @Column()
-  mobile: string;
+  @Column()   
+  username: string;    
 
-  @Column()
-  email: string;
+  @Column()   
+  mobile: string;    
 
-  @Column()
-  motdepasse: string;
+  @Column()   
+  email: string;    
 
-  @OneToMany(() => Project, project => project.client)
-  projects: Project[];
+  @Column()   
+  motdepasse: string;    
 
+  // Relation: One client can have many projects
+  @OneToMany(() => Project, project => project.client)   
+  projects: Project[];  
 }
